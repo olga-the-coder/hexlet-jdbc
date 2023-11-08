@@ -23,6 +23,12 @@ public class Application {
                 preparedStatement.executeUpdate();
             }
 
+            var sql4 = "DELETE FROM users WHERE username = ?";
+            try (var preparedStatement2 = conn.prepareStatement(sql4)) {
+                preparedStatement2.setString(1, "Tommy");
+                preparedStatement2.executeUpdate();
+            }
+
             var sql3 = "SELECT * FROM users";
             try (var statement3 = conn.createStatement()) {
                 var resultSet = statement3.executeQuery(sql3);
